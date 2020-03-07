@@ -1,2 +1,19 @@
 # Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.class
+.classpath
+.project
+build
+bin
+.bak
+.settings
+Thumbs.db
+.DS_Store
+._.DS_Store
+logs
+target
+*.iml
 .idea
+
+my-app/node_modules
+boot-utils-demo.iml

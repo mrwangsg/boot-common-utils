@@ -67,15 +67,6 @@ public class FunInterface {
         resList.forEach(System.out::println);
     }
 
-    public static List<Integer> predicateFun(List<Integer> list, Predicate<Integer> pre) {
-        List<Integer> temp = new ArrayList<>();
-        for (Integer value : list) {
-            if (pre.test(value))
-                temp.add(value);
-        }
-        return temp;
-    }
-
     public static void consumerFun(double money, Consumer<Double> c) {
         c.accept(money);
     }
@@ -90,6 +81,15 @@ public class FunInterface {
 
     public static String functionFun(String str, Function<String, String> fun) {
         return fun.apply(str);
+    }
+
+    public static List<Integer> predicateFun(List<Integer> list, Predicate<Integer> pre) {
+        List<Integer> temp = new ArrayList<>();
+        for (Integer value : list) {
+            if (pre.test(value))
+                temp.add(value);
+        }
+        return temp;
     }
 
     public static void main(String[] args) {

@@ -29,6 +29,14 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--   reactor基础框架     -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

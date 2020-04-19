@@ -47,12 +47,22 @@ public class DataCenter {
         temp06.put("arrOfArrType", JSON.parseObject("{\"userList\":[{\"password\":\"123456\",\"username\":\"wangsg\"},{\"password\":\"just 123456\",\"username\":\"just name\"}]}"));
         stepsMap.put("step06", temp06);
 
+        Map<String, JSON> temp07 = new ConcurrentHashMap<>();
+        temp07.put("arrOfArrArrType", JSON.parseObject("{\"userListList\":[[{\"password\":\"123456\",\"username\":\"wangsg\"},{\"password\":\"just 123456 03\",\"username\":\"just name 03\"}]]}"));
+        stepsMap.put("step07", temp07);
+
+        Map<String, JSON> temp08 = new ConcurrentHashMap<>();
+        temp08.put("arrOfArrArrArrType", JSON.parseObject("{\"userListListList\":[[[{\"password\":\"123456\",\"username\":\"wangsg\"},{\"password\":\"just 123456 03\",\"username\":\"just name 03\"}]]]}"));
+        stepsMap.put("step08", temp08);
+
         // "step01.response.username == wangsg"
         // "step02.params[0].Content-Type == wangsg"
         // "step03.query[0] == demo"
         // "step04.rest == just a string""
         // "step05.arrOfObjType[0].user01.password == 123456"
         // "step06.arrOfArrType.userList[0].password == 123456"
+        // "step07.arrOfArrArrType.userListList[0][0].password == 123456"
+        // "step08.arrOfArrArrArrType.userListListList[0][0][1].password == just 123456 03"
 
         return stepsMap;
     }
@@ -98,6 +108,24 @@ public class DataCenter {
         listUser.add(user02);
         mapListUser.put("userList", listUser);
         System.err.println(JSON.toJSONString(mapListUser));
+
+        Map<String, List<List<User>>> mapListListUser = new ConcurrentHashMap<>();
+        List<List<User>> listListUser = new ArrayList<>();
+        List<User> userList = new ArrayList<>();
+        User user03 = new User();
+        user03.setUsername("just name 03");
+        user03.setPassword("just 123456 03");
+        userList.add(user);
+        userList.add(user03);
+        listListUser.add(userList);
+        mapListListUser.put("userListList", listListUser);
+        System.err.println(JSON.toJSONString(mapListListUser));
+
+        Map<String, List<List<List<User>>>> mapListListListUser = new ConcurrentHashMap<>();
+        List<List<List<User>>> listListListUser = new ArrayList<>();
+        listListListUser.add(listListUser);
+        mapListListListUser.put("userListListList", listListListUser);
+        System.err.println(JSON.toJSONString(mapListListListUser));
     }
 
 }

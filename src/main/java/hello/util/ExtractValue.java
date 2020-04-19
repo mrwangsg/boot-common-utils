@@ -24,4 +24,30 @@ public class ExtractValue {
 
     }
 
+    public static void main(String[] args) throws ExpressFormatException {
+        Map<String, Map<String, JSON>> stepsMap = DataCenter.getStepsMapData();
+        String expressStr = "";
+
+        expressStr = "step01.response.username";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step02.params[0].Content-Type";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step03.query[0]";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step05.arrOfObjType[0].user01.password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step06.arrOfArrType.userList[0].password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step07.arrOfArrArrType.userListList[0][0].password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step08.arrOfArrArrArrType.userListListList[0][0][1].password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+    }
+
 }

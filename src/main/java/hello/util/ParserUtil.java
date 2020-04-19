@@ -13,8 +13,8 @@ import java.util.Map;
  * @name ParserUtil
  * @user Anti
  * @创建时间 2020/4/18
- * @描述 仅支持获取value值，1.不支持获取Object或Array；2.不支持嵌套数组格式；3大小写和空格敏感
- * TODO 异常捕获、支持嵌套数组格式
+ * @描述 仅支持获取value值，1.不支持获取Object或Array；2.大小写和空格敏感
+ * TODO 异常捕获
  */
 public class ParserUtil {
     static final String type_arr = "arr"; // 数组类型
@@ -112,19 +112,40 @@ public class ParserUtil {
         if (otherExpressStr.contains(".") || otherExpressStr.contains("]")) {
             String indexType = diffType(otherExpressStr);   // 区别当前 类型
             String keyStr = "";                             // 当前key字符串
-            String nextStr = "";                            // 子孩子字符串
-            JSON nextJSON = null;                          // 子孩子数据源
+            String nextStr = "";                            // 子孩纸字符串
+            String arrArrStr = "";                          // 用于判断是否嵌套数组
+            JSON nextJSON = null;                           // 子孩纸数据源
 
-            // 类型格式："[num]."或"[num]"
+            // 类型格式："[num]."或"[num]"或"[num][num]."或"[num][num]"
             if (ParserUtil.type_arr.equals(indexType)) {
                 int numIndex = ParserUtil.arrStrOfIndex(otherExpressStr);
                 keyStr = otherExpressStr.substring(0, otherExpressStr.indexOf("["));
+                arrArrStr = otherExpressStr.substring(otherExpressStr.indexOf("]") + 1);
 
                 if (ParserUtil.arrOfObjType(otherExpressStr)) {
                     // otherJSON 是对象类型数组 即"]"之后存在"."
                     JSONArray arrJSON = (JSONArray) ((JSONObject) otherJSON).get(keyStr);
                     nextStr = otherExpressStr.substring(otherExpressStr.indexOf("]") + 2);
                     nextJSON = (JSON) arrJSON.get(numIndex);
+                    return ParserUtil.parseOtherExpressStr(nextStr, nextJSON);
+                } else if (ParserUtil.arrOfArrType(arrArrStr)) {
+                    // otherJSON 是嵌套数组 即"]"之后存在"["
+                    JSONArray arrJSON = (JSONArray) ((JSONObject) otherJSON).get(keyStr);
+                    nextStr = otherExpressStr.substring(otherExpressStr.indexOf("]") + 1);
+                    nextJSON = (JSON) arrJSON.get(numIndex);
+
+                    // 如果还存在嵌套，循环提取
+                    while (ParserUtil.arrOfArrType(nextStr)) {
+                        int innerNumIndex = ParserUtil.arrStrOfIndex(nextStr);
+                        nextStr = nextStr.substring(nextStr.indexOf("]") + 1);
+                        nextJSON = (JSON) ((JSONArray) nextJSON).get(innerNumIndex);
+                    }
+
+                    // 嵌套完之后，如果是"^."首位，直接截取
+                    if (nextStr.indexOf(".") == 0){
+                        nextStr = nextStr.substring(nextStr.indexOf(".") + 1);
+                    }
+
                     return ParserUtil.parseOtherExpressStr(nextStr, nextJSON);
                 } else {
                     // otherJSON 是基本类型数组 即"]"终止
@@ -193,6 +214,23 @@ public class ParserUtil {
         return false;
     }
 
+
+    /**
+     * 判断是否为嵌套数组，需要去除key，只保留一下格式前缀
+     * "^[num][num]." 或 "^[num][num]"
+     *
+     * @param arrStr
+     * @return Boolean
+     */
+    private static Boolean arrOfArrType(String arrStr) {
+        if (arrStr.indexOf("[") == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public static void main(String[] args) throws ExpressFormatException {
         Map<String, Map<String, JSON>> stepsMap = DataCenter.getStepsMapData();
         String expressStr = "";
@@ -210,6 +248,12 @@ public class ParserUtil {
         ParserUtil.handlerTask(expressStr, stepsMap);
 
         expressStr = "step06.arrOfArrType.userList[0].password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step07.arrOfArrArrType.userListList[0][0].password";
+        ParserUtil.handlerTask(expressStr, stepsMap);
+
+        expressStr = "step08.arrOfArrArrArrType.userListListList[0][0][1].password";
         ParserUtil.handlerTask(expressStr, stepsMap);
     }
 

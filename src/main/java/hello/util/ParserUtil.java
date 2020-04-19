@@ -20,7 +20,11 @@ public class ParserUtil {
     static final String type_arr = "arr"; // 数组类型
     static final String type_obj = "obj"; // 对象类型
     static final String type_attr = "attr"; // 属性类型
-    static final String step_null_map = "该步骤不存在对应值";
+
+    static final Integer arr_max_level = 5;     // 规定嵌套层级，限制最大5层
+
+    static final String error_step_null_map = "该步骤不存在对应值";
+    static final String error_arr_max_level = "超出最大嵌套层级";
 
     /**
      * 处理入口，需要原始字符串和数据源
@@ -62,7 +66,7 @@ public class ParserUtil {
 
         Map<String, JSON> scopeMap = stepsMap.get(stepStr);
         if (scopeMap == null) {
-            throw new ExpressFormatException(ParserUtil.step_null_map);
+            throw new ExpressFormatException(ParserUtil.error_step_null_map);
         }
 
         return scopeMap;
@@ -74,7 +78,7 @@ public class ParserUtil {
      * @param scopeExpressStr
      * @param scopeMap
      */
-    private static Object parseScopeExpressStr(String scopeExpressStr, Map<String, JSON> scopeMap) {
+    private static Object parseScopeExpressStr(String scopeExpressStr, Map<String, JSON> scopeMap) throws ExpressFormatException {
         String scopeStr;
 
         String scopeType = ParserUtil.diffType(scopeExpressStr);
@@ -106,7 +110,7 @@ public class ParserUtil {
      * @param otherJSON
      * @return
      */
-    private static Object parseOtherExpressStr(String otherExpressStr, JSON otherJSON) {
+    private static Object parseOtherExpressStr(String otherExpressStr, JSON otherJSON) throws ExpressFormatException {
 
         // 存在"." || "]" 说明类型为 obj || arr
         if (otherExpressStr.contains(".") || otherExpressStr.contains("]")) {
@@ -135,14 +139,20 @@ public class ParserUtil {
                     nextJSON = (JSON) arrJSON.get(numIndex);
 
                     // 如果还存在嵌套，循环提取
+                    int totalLevel = 0;
                     while (ParserUtil.arrOfArrType(nextStr)) {
+                        // 判断是否超出最大嵌套层级
+                        if (++totalLevel >= ParserUtil.arr_max_level) {
+                            throw new ExpressFormatException(ParserUtil.error_arr_max_level);
+                        }
+
                         int innerNumIndex = ParserUtil.arrStrOfIndex(nextStr);
                         nextStr = nextStr.substring(nextStr.indexOf("]") + 1);
                         nextJSON = (JSON) ((JSONArray) nextJSON).get(innerNumIndex);
                     }
 
                     // 嵌套完之后，如果是"^."首位，直接截取
-                    if (nextStr.indexOf(".") == 0){
+                    if (nextStr.indexOf(".") == 0) {
                         nextStr = nextStr.substring(nextStr.indexOf(".") + 1);
                     }
 

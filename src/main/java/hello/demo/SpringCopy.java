@@ -38,6 +38,7 @@ public class SpringCopy {
         BeanUtils.copyProperties(nestBean01, nestBean);
         System.err.println(nestBean01);
         System.err.println(nestBean);
+        System.err.println("---------------- 分割线 ---------------");
 
 
         User demoUser = new User();
@@ -52,6 +53,7 @@ public class SpringCopy {
         BeanUtils.copyProperties(objBean, objBeanBO);
         System.err.println(objBean);
         System.err.println(objBeanBO);
+        System.err.println("---------------- 分割线 ---------------");
 
         ArrBean arrBean = new ArrBean();
         arrBean.setName("arr-bean-demo");
@@ -64,12 +66,13 @@ public class SpringCopy {
 
         System.err.println(arrBean);
         System.err.println(arrBeanBO);
-        System.err.println(tempList);
+        System.err.println("---------------- 分割线 ---------------");
 
         List userList = new ArrayList<>();
         userList.add(demoUser);
         test(userList);
         System.err.println(userList);
+        System.err.println("---------------- 分割线 ---------------");
     }
 
     private static void test(List<User> userList) {

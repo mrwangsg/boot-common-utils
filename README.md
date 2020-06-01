@@ -16,5 +16,4 @@
 
 ##### `util_easy_excel` 省内存的读写Excel、支持读写百M的Excel
 
-##### `util_jdbc_stream` 使用jdbc工具，测试流不正确释放，是否会内存泄露
 

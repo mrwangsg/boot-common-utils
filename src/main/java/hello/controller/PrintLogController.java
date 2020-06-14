@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/log")
 public class PrintLogController {
     private static final Logger logger = LoggerFactory.getLogger(PrintLogController.class);
-    private static final String I10001 = "print log of %s!";
+    private static final String I10001 = "print log of {} ";
 
     @GetMapping("/trace")
     public String trace() {

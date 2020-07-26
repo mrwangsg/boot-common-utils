@@ -16,4 +16,6 @@
 
 ##### `util_easy_excel` 省内存的读写Excel、支持读写百M的Excel
 
+##### `util_ThreadLocal` 定义：线程本地存储。在每个线程中都创建了一个ThreadLocalMap对象，即Thread与ThreadLocal为1对多关系
+
 

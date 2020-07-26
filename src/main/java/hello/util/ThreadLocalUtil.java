@@ -5,7 +5,8 @@ package hello.util;
  * @name ThreadLocalUtil
  * @user Anti
  * @创建时间 2020/7/26
- * @描述
+ * @描述: ThreadLocal深度了解：https://www.jianshu.com/p/98b68c97df9b
+ *          ThreadLocal内存泄漏本质：https://www.jianshu.com/p/a1cd61fa22da
  */
 public class ThreadLocalUtil {
 

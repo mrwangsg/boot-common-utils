@@ -1,4 +1,4 @@
-package hello.util;
+package hello.threadlocal;
 
 /**
  * @创建人 sgwang

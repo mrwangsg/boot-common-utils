@@ -69,7 +69,6 @@ public class DateUtil {
         for (int index = 0; index < count; index++) {
             new Thread(() -> {
                 System.err.println("----------- 分割线 --------");
-                System.err.println(index);
                 Date date = new Date();
                 String dateStr = DateUtil.formatDate(date);
                 System.err.println(dateStr);

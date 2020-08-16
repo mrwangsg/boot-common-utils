@@ -35,8 +35,10 @@ public class ByteHexUtil {
 
     // 将10进制转换为16进制
     public static int hexToTen(String strHex) {
-        // 直接输出int型，因为没有正负数之分，所以结果都是正的
-        return (byte) Integer.parseInt(strHex, 16);
+        // 直接输出int型，因为没有正负数之分，所以结果都是正的。byte型就不一样了，首位为符号位有正负之分
+        // (byte) Integer.parseInt("89", 16) = -119
+        //        Integer.parseInt("89", 16) = 137
+        return Integer.parseInt(strHex, 16);
 
     }
 

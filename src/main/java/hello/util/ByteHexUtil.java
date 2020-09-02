@@ -1,5 +1,6 @@
 package hello.util;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
@@ -99,7 +100,18 @@ public class ByteHexUtil {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+
+        String testStr = MessageHelper.Global_SerialNo_Str2bin(("00692020081400000291"));
+        System.err.println(testStr);
+        System.err.println(Arrays.toString(hexToArrayByte("010e52013df8000123")));
+        System.err.println(MessageHelper.Global_SerialNo_Bin2str("010e52013df8000123"));
+
+        byte test = (byte) 0xff;
+        System.err.println(test);
+        System.err.println(test & 0xff);
+        System.err.println("ffff".getBytes("GBK").length);
+
         System.err.println(Integer.toHexString(-119 & 0xff));
         System.err.println(tenToHex(-119));
         System.err.println(hexToTen("89"));

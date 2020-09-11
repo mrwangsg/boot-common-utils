@@ -1,0 +1,44 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: spdb-provide-data
+  jackson.property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+  datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//10.253.147.15:6060/bizdp2
+    username: system
+    password: oracle
+
+#  datasource:
+#    driverClassName: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@//10.243.140.183:1521/dmpdb
+#    username: system
+#    password: system
+
+#  datasource:
+#    driverClassName: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@//10.243.141.30:1521/orcl
+#    username: tmpoper
+#    password: tmpoper
+
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapping/**/*Mapper.xml
+
+# 文件生成路径
+data-path: C:\project\spdb-provide-data\sop-data
+
+logging:
+  level:
+    root: info
+  file: logs\${spring.application.name}.log
+  file.max-size: 10MB
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [${spring.application.name}] [%thread] %-5level %logger{50} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [${spring.application.name}] [%thread] %clr(%-5level) %logger{50} - %msg%n"
+

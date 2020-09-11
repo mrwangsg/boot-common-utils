@@ -43,6 +43,46 @@
             <version>29.0-jre</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.6</version>
+        </dependency>
+
+        <!-- bean copy -->
+        <dependency>
+            <groupId>com.github.yangtu222</groupId>
+            <artifactId>BeanUtils</artifactId>
+            <version>1.0.11</version>
+        </dependency>
+
+        <!-- Use Oracle Connector-J -->
+        <dependency>
+            <groupId>oracle</groupId>
+            <artifactId>oracle-connector-java</artifactId>
+            <version>0.0.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ojdbc8.jar</systemPath>
+        </dependency>
+
+        <!-- 用于解决： java.sql.SQLException: 不支持的字符集 (在类路径中添加 orai18n.jar): ZHS16GBK -->
+        <!-- https://mvnrepository.com/artifact/com.oracle/orai18n  https://www.kumapai.com/open/3413-orai18n/12-1-0-2-0 -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>orai18n</artifactId>
+            <version>12.1.0.2.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/orai18n-12.1.0.2.0.jar</systemPath>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

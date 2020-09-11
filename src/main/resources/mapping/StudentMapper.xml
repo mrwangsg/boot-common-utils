@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="test.model.Student">
+    <result column="uuid" jdbcType="NUMERIC" property="uuid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="birth_date" jdbcType="TIMESTAMP" property="birthDate" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="student_num" jdbcType="VARCHAR" property="studentNum" />
+    <result column="alias_class_id" jdbcType="NUMERIC" property="aliasClassId" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+   select * from STUDENT
+
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+   select * from STUDENT  where uuid = #{uuid,jdbcType=INTEGER}
+  </select>
+
+  <!--results可以自定义代表输出map的键 jdbcType必须是CURSOR resultMap指定为resultMap标签的id值 -->
+  <select id="selectStuByCur" parameterType="java.util.Map" statementType="CALLABLE">
+    <![CDATA[
+        {call TMPOPER.selectStuByCur(
+        #{i_operator,mode=IN,jdbcType=VARCHAR},
+        #{results,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=BaseResultMap},
+        #{total,mode=OUT,jdbcType=INTEGER}
+        )}
+    ]]>
+  </select>
+
+
+</mapper>

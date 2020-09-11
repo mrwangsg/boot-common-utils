@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SUMMIT>
+    <COMMON>
+        <MsgId>2019121016062174820600000000000000000000000000000000</MsgId>
+        <ExternalId>20191210</ExternalId>
+        <Type>FXSPOT</Type>
+        <Version>0</Version>
+        <Action>cCREATE</Action>
+        <Timestamp>20191210 16:06:21.748</Timestamp>
+        <TargetSystem>IMA</TargetSystem>
+        <SourceSystem>DIMPLE</SourceSystem>
+    </COMMON>
+    <TRADEDETAIL>
+        <TRADELIST>
+            <FXSPOT>
+                <TradeType>FXSPOT</TradeType>
+                <Env TYPE="EntList" SINGLE="Y">
+                    <ENV>
+                        <TradeDate>20191210</TradeDate>
+                        <Cust>SGE</Cust>
+                        <Company/>
+                        <Book>fuyharb1|ZY|000611|1|0000000006|</Book>
+                        <Desk/>
+                        <Trader>fuyharb1</Trader>
+                        <cPMTradeAcct>000611|SGE</cPMTradeAcct>
+                    </ENV>
+                </Env>
+                <Back TYPE="EntList" SINGLE="Y">
+                    <BACK>
+                        <ExtTradeId>1912100000000001</ExtTradeId>
+                        <ExtSystem>DIMPLE</ExtSystem>
+                        <SSIOpsCode/>
+                    </BACK>
+                </Back>
+                <Forex TYPE="EntList" SINGLE="Y">
+                    <FOREX>
+                        <PorS>S</PorS>
+                        <Valdate>20191210</Valdate>
+                        <SpotDate>20191210</SpotDate>
+                        <BoughtCcy></BoughtCcy>
+                        <BoughtAmt TYPE="Numeric"></BoughtAmt>
+                        <SoldCcy>Au(T+D)</SoldCcy>
+                        <SoldAmt TYPE="Numeric">56000</SoldAmt>
+                        <SpotRate TYPE="Numeric">332.04</SpotRate>
+                        <cSpciSale>0</cSpciSale>
+                    </FOREX>
+                </Forex>
+            </FXSPOT>
+        </TRADELIST>
+    </TRADEDETAIL>
+</SUMMIT>

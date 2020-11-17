@@ -1,0 +1,256 @@
+
+[basic]
+drtp.ip = 10.243.140.183
+drtp.port = 4444
+drtp.branchNo = 444
+drtp.functionNo = 18000
+
+
+;通用对账(ib1242)
+[111000311]
+waiblius =vsshort_10,str,03614810
+waibriqi =vsshort_9,str,20191219
+duizleix =vschar_2,str,1
+jiaoyims =vschar_3,str,1
+
+
+
+;交易成功性查询(ib1693)
+[111000312]
+waiblius =vsshort_10,str,03614810
+waibriqi =vsshort_9,str,20191219
+yqzhriqi =vsshort_14,str,20191219
+yqzhlshu =vsshort_15,str,CX010771920466I
+
+
+
+
+
+
+;通用记账ib1243
+[111000313]
+waiblius =vsshort_14,str,03614810
+waibriqi =vsshort_9,str,20191219
+qianzhrq =vsshort_9,str,20191219
+qianzhls =vsshort_14,str,03614810
+laiwzhlx =vschar_8,str,0
+fukrzhao =vsshort_17,str,1008800000000001
+fukrzwmc =vsmid_2,str,江苏有线常州分公司
+shkrzhao =vsshort_19,str,6228910100101225661
+shkrzwmc =vsmid_3,str,李四
+
+rows=2
+[111000313_1]
+zhaolaiy =vschar_3,str,0
+huobdaih =vschar_4,str,01
+chaohubz =vschar_5,str,x
+jiedaibz =vschar_7,str,C
+jiaoyije =damt_10,dou,2.00
+sffeiybz =vschar_6,str,0
+duifkhzh =vsshort_18,str,1008800000000001
+duifminc =vsmid_4,str,江苏有线常州分公司
+
+[111000313_2]
+zhaolaiy =vschar_3,str,0
+huobdaih =vschar_4,str,01
+chaohubz =vschar_5,str,x
+jiedaibz =vschar_7,str,D
+jiaoyije =damt_10,dou,2.00
+sffeiybz =vschar_6,str,0
+duifkhzh =vsshort_18,str,6228910100101225661
+duifminc =vsmid_4,str,李四
+
+
+;通用记账(MBT999)
+[111000314]
+waiblius =vsshort_14,str,03614810
+waibriqi =vsshort_9,str,20191219
+waibshij =smatch_date,str,170650
+qianzhrq =vsshort_9,str,20191219
+qianzhls =vsshort_14,str,03614810
+
+huobdaih =vschar_4,str,01
+laiwzhlx =vschar_8,str,1
+fukrzhao =vsshort_17,str,1008800000000001
+fukrzwmc =vsmid_2,str,江苏有线常州分公司
+shkrzhao =vsshort_19,str,6228910100101225661
+shkrzwmc =vsmid_3,str,李四
+jzzhaiym =vssmall_6,str,MDCMTR
+
+rows=2
+[111000314=1]
+jiedaibz =vschar_7,str,C
+zhngha   =vsshort_18,str,1008800000000001
+jiaoyije =damt_10,dou,2.00
+
+[111000314=2]
+jiedaibz =vschar_7,str,D
+zhngha   =vsshort_18,str,6228910100101225661
+jiaoyije =damt_10,dou,2.00
+
+
+
+
+[1007491]
+Btransaction_sn =vsshort_2,str,XP1231242315432
+prdctName		=vschar_2,str,1
+dealType		=vsshort_3,str,insert
+TradeRequestID	=vsshort_4,str,XP1231242315432
+DealTransType	=vschar_3,chr,0
+TradeDate		=sop_date,str,20201022
+TradeTime		=sop_time,str,11:13:50
+ExecID			=vsshort_5,str,1007491004
+DealID			=vsshort_6,str,1007491004
+MarketIndicator	=vsshort_7,str,12
+TrdPurpose		=lvol_2,int,4
+DataSourceString		=vsshort_8,str,SG
+Symbol			=vsshort_9,str,AGY.CNY
+Side			=vsshort_10,chr,1
+Currency		=vsshort_11,str,AGY
+SettlCurrency	=vsshort_12,str,CNY
+LastQty			=vsshort_13,str,100
+CalculatedCcyLastQty	=vsshort_14,str,1230.00
+SettlType		=vsshort_15,str,TODAY
+SettlDate		=vsshort_16,str,20201022
+LastSpotRate	=vsshort_18,str,100.007
+LastForwardPoints		=vsshort_17,str,0.00
+LastPx			=damt_3,dou,2.01
+ourOrgCode		=vssmall_2,str,284
+ourTraderCode	=vssmall_3,str,284
+ourOrgEnName	=vssmall_4,str,$empty
+ourOrgNum		=vssmall_5,str,284
+otherOrgCode	=vssmall_6,str,CUSTOMER
+otherTraderCode	=vssmall_7,str,$empty
+otherOrgEnName	=vssmall_8,str,$empty
+otherOrgNum		=vssmall_9,str,CUSTOMER
+
+
+[1007492]
+Btransaction_sn =vsshort_2,str,XP1231242315433
+prdctName		=vschar_2,str,2
+dealType		=vsshort_3,str,insert
+TradeRequestID	=vsshort_4,str,XP1231242315433
+DealTransType	=vschar_3,chr,0
+TradeDate		=sop_date,str,20201022
+TradeTime		=sop_time,str,11:13:50
+ExecID			=vsshort_5,str,1007492001
+DealID			=vsshort_6,str,1007492001
+MarketIndicator	=vsshort_7,str,12
+TrdPurpose		=lvol_2,int,4
+DataSourceString		=vsshort_8,str,SG
+Symbol			=vsshort_9,str,AGY.CNY
+Side			=vsshort_10,chr,1
+Currency		=vsshort_11,str,AGY
+SettlCurrency	=vsshort_12,str,CNY
+LastQty			=vsshort_13,str,100
+CalculatedCcyLastQty	=vsshort_14,str,1230.00
+SettlType		=vsshort_15,str,TODAY
+SettlDate		=vsshort_16,str,20201022
+LastSpotRate	=vsshort_18,str,100.007
+LastForwardPoints		=vsshort_17,str,0.00
+LastPx			=damt_3,dou,2.01
+ourOrgCode		=vssmall_2,str,284
+ourTraderCode	=vssmall_3,str,284
+ourOrgEnName	=vssmall_4,str,$empty
+ourOrgNum		=vssmall_5,str,284
+otherOrgCode	=vssmall_6,str,CUSTOMER
+otherTraderCode	=vssmall_7,str,$empty
+otherOrgEnName	=vssmall_8,str,$empty
+otherOrgNum		=vssmall_9,str,CUSTOMER
+
+
+
+[1007493]
+Btransaction_sn =vsshort_2,str,XP1231242315434
+prdctName		=vschar_2,str,3
+dealType		=vsshort_3,str,insert
+TradeRequestID	=vsshort_4,str,XP1231242315434
+DealTransType	=vschar_3,chr,0
+TradeDate		=sop_date,str,20201022
+TradeTime		=sop_time,str,11:13:50
+ExecID			=vsshort_5,str,1007493014
+DealID			=vsshort_6,str,1007493014
+MarketIndicator	=vsshort_7,str,11
+
+TrdPurpose		=lvol_2,int,4
+DataSourceString		=vsshort_8,str,SG
+Symbol			=vsshort_9,str,AUX.CNY
+Side			=vschar_5,chr,1
+
+1_Symbol		    =vsshort_18,str,AUX.CNY
+1_LegSign		    =vschar_6,str,N
+1_LegSide		    =vschar_8,str,1
+1_LegCurrency	    =vsmid_2,str,CNY
+1_LegSettlCurrency	=vsmid_4,str,AUX
+1_LegOrderQty	    =vsmid_6,str,100
+1_LegCalculatedCcyLastQty	=vsmid_8,str,100.01
+1_LegSettlType	    =vsshort_10,str,BROKEN
+1_LegSettlDate	    =vsshort_12,str,20201022
+1_LegSpotDate	    =vsshort_14,str,20201022
+1_LegLastSpotRate	        =damt_10,dou,2.01
+1_LegLastForwardPoints	    =vsshort_16,str,0.00
+1_LegLastPx		    =damt_12,dou,2.01
+
+2_Symbol		    =vsshort_19,str,AUX.CNY
+2_LegSign			=vschar_7,str,F
+2_LegSide			=vschar_9,str,4
+2_LegCurrency		=vsmid,str,CNY
+2_LegSettlCurrency	=vsmid_3,str,AUX
+2_LegOrderQty		=vsmid_5,str,100.01
+2_LegCalculatedCcyLastQty	    =vsmid_7,str,100
+2_LegSettlType	    =vsshort_11,str,BROKEN
+2_LegSettlDate	    =vsshort_13,str,20201022
+2_LegSpotDate		=vsshort_15,str,20201022
+2_LegLastSpotRate	=damt_11,dou,2.01
+2_LegLastForwardPoints	=vsshort_17,str,0.00
+2_LegLastPx		    =damt_13,dou,2.01
+
+ourOrgCode		=vssmall_2,str,284
+ourTraderCode	=vssmall_3,str,284
+ourOrgEnName	=vssmall_4,str,$empty
+ourOrgNum		=vssmall_5,str,284
+otherOrgCode	=vssmall_6,str,CUSTOMER
+otherTraderCode	=vssmall_7,str,$empty
+otherOrgEnName	=vssmall_8,str,$empty
+otherOrgNum		=vssmall_9,str,CUSTOMER
+
+
+[1007494]
+Btransaction_sn =vsshort_2,str,XP1231242315435
+prdctName		=vschar_2,str,4
+dealType		=vsshort_3,str,insert
+TradeRequestID	=vsshort_4,str,XP1231242315435
+DealTransType	=vschar_3,chr,0
+TradeDate		=sop_date,str,20201022
+TradeTime		=sop_time,str,11:13:50
+ExecID			=vsshort_5,str,1007494009
+DealID			=vsshort_6,str,1007494009
+MarketIndicator	=vsshort_7,str,41
+
+DataSourceString		=vsshort_8,str,SG
+Side			=vsshort_10,chr,1
+Currency		=vsshort_11,str,AGY
+LastQty			=vsshort_13,str,100
+SettlType		=vsshort_15,str,TODAY
+SettlDate		=vsshort_16,str,20201022
+
+MaturityDate		=vsmid_6,str,20201022
+MaturityDateType	=vsmid_7,str,BROKEN
+TradeLimitDays		=vsmid_8,str,100
+PriceType			=lvol_5,int,3
+Price				=damt_5,dou,3.00
+DayCount			=vslong,str,1
+SettlCurrAmt		=vslong_2,str,100.00
+SettlCurrency		=vslarge,str,CNY
+LastPx				=damt_6,dou,100.00
+MiscFeeType			=lvol_6,int,13
+MiscFeeAmt			=vslong_3,str,2.01
+
+ourOrgCode		=vssmall_2,str,284
+ourTraderCode	=vssmall_3,str,284
+ourOrgEnName	=vssmall_4,str,$empty
+ourOrgNum		=vssmall_5,str,284
+otherOrgCode	=vssmall_6,str,CUSTOMER
+otherTraderCode	=vssmall_7,str,$empty
+otherOrgEnName	=vssmall_8,str,$empty
+otherOrgNum		=vssmall_9,str,CUSTOMER

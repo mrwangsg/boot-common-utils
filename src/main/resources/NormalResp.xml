@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Transaction>
+    <Header>
+        <sysHeader>
+            <msgId>0112202007221721484699274</msgId>
+            <msgDate>20200309</msgDate>
+            <msgTime>172148</msgTime>
+            <serviceCd>P00002015939</serviceCd>
+            <operation>ComstarValetTrans</operation>
+            <clientCd>112</clientCd>
+            <serverCd>287</serverCd>
+            <bizId>SWP2000007124</bizId>
+            <bizType/>
+            <orgCode>80003</orgCode>
+            <ver>000</ver>
+            <resCode>000000</resCode>
+            <resText>交易成功</resText>
+        </sysHeader>
+    </Header>
+    <Body>
+        <response>
+            <bizHeader>
+                <transaction_sn>XX202007221666</transaction_sn>
+                <transaction_id>wb1001</transaction_id>
+                <requester_id>287</requester_id>
+                <transaction_inst>09011</transaction_inst>
+                <transaction_opr>lh001</transaction_opr>
+                <transaction_auth>01888</transaction_auth>
+                <transaction_date>20200309</transaction_date>
+                <transaction_time>171714</transaction_time>
+                <transaction_opr_sn>lh001</transaction_opr_sn>
+                <transaction_terno>lh001</transaction_terno>
+                <tran_response>
+                    <status>COMPLETE</status>
+                    <code>00000</code>
+                    <desc>success</desc>
+                </tran_response>
+            </bizHeader>
+            <bizBody>
+                <rtnDealSqno>202007223000800069</rtnDealSqno>
+            </bizBody>
+        </response>
+    </Body>
+</Transaction>
